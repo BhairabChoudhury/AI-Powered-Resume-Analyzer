@@ -1,0 +1,9 @@
+flask
+flask.core
+fastapi
+uvicorn
+scikit-learn
+pdfplumber
+python-dotenv
+google-generativeai
+sentence-transformers 
