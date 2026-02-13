@@ -46,7 +46,7 @@ const Signup = () => {
 
         {error && (
           <div className='bg-red-500/20 border border-red-500/50 text-red-100 p-3 rounded-lg mb-6 text-sm text-center'>
-            {error}
+            {error} 
           </div>
         )}
 
