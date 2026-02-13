@@ -3,7 +3,7 @@ import json
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() 
 
 # Configure the Gemini API
 API_KEY = os.getenv("GOOGLE_API_KEY")
