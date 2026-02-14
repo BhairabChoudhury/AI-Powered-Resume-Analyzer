@@ -82,7 +82,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -127,7 +126,7 @@ const Home = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gray-100 text-gray-900 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">How It Works</h2>
@@ -160,19 +159,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">Ready to Land Your Dream Job?</h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">Join thousands of job seekers who have optimized their resumes and secured more interviews.</p>
-          <button
-            onClick={handleGetStarted}
-            className="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg shadow-2xl hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1"
-          >
-            Analyze My Resume Now
-          </button>
-        </div>
-      </section>
+     
 
       <Footer />
     </div>

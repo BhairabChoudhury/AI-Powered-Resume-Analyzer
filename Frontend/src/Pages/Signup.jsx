@@ -98,7 +98,7 @@ const Signup = () => {
 
           <div className='flex items-center justify-between mt-4 text-sm text-white/80'>
             <span>Already have an account?</span>
-            <a href="#" className='text-white font-semibold hover:underline'>Log In</a>
+            <a href="http://localhost:5173/signin" className='text-white font-semibold hover:underline'>Log In</a>
           </div>
         </form>
       </div>
