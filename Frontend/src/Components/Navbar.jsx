@@ -9,9 +9,10 @@ const Navbar = () => {
                     {/* 1. Logo (Left) */}
                     <div className="flex-shrink-0 cursor-pointer flex items-center gap-2">
         
-                        <h1 className='text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent tracking-tight'>
-                            Resume Teacher 
-                        </h1>
+                        <h2 className='text-3xl font-bold text-black  tracking-tight flex items-center gap-2'>
+                            <span className='w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-lg'>RT</span>
+                            Resume Teacher
+                        </h2>
                     </div>
 
                     {/* 2. Navigation Links (Center) */}
