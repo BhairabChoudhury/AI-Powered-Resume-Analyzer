@@ -27,10 +27,7 @@ const Home = () => {
 
             {/* Text Content */}
             <div className="lg:w-1/2 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-6">
-                <FaStar className="text-yellow-500" />
-                <span>#1 AI Resume Analyzer</span>
-              </div>
+             
               <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Boost Your Resume with AI Powered ATS Analysis</span>
               </h1>

@@ -1,9 +1,10 @@
+import React from 'react' 
 
 
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className='min-h-screen  bg-gray-500 '>
             <h1>Dashboard</h1>
         </div>
     )
