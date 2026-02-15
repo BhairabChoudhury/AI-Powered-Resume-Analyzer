@@ -18,7 +18,7 @@ const analyzeResume = async (req, res) => {
 
     // save analysis
     const saved = await Analysis.create({
-      userId,
+          userId,
       ...aiResult
     });
 
