@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [role, setRole] = useState('');
     const [jobDescription, setJobDescription] = useState('');
     const [loading, setLoading] = useState(false);
-
+     const [data , setdata] = useState() ; 
     const handleDragOver = (e) => {
         e.preventDefault();
         setIsDragging(true);
@@ -52,11 +52,16 @@ const Dashboard = () => {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             });
+                  
+            setdata(response)
+             setLoading(false) ; 
             console.log(response.data);
          } catch (error) {
             console.log(error); 
             setLoading(false); 
          }
+
+        
     };
 
     return (
@@ -231,7 +236,7 @@ const Dashboard = () => {
                 </div>
             </main>
             <div>
-               <ResultSection/>  
+               <ResultSection data={data}/>  
             </div>
          
         </div> 
