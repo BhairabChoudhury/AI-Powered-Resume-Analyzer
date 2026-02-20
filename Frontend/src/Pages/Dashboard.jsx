@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import { FaCloudUploadAlt, FaBriefcase, FaFileAlt, FaMagic, FaCheckCircle, FaSpinner } from 'react-icons/fa'
-
+import ResultSection from '../Components/ResultSection'
 const Dashboard = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [file, setFile] = useState(null);
@@ -218,8 +218,11 @@ const Dashboard = () => {
                     </div>
                 </div>
             </main>
-
-        </div>
+            <div>
+               <ResultSection/>  
+            </div>
+         
+        </div> 
     )
 }
 
