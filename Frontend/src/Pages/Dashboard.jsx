@@ -35,16 +35,28 @@ const Dashboard = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit =  async (e) => {
         e.preventDefault();
         if (!file || !jobDescription) return;
 
         setLoading(true);
-        // Simulate API call
-        setTimeout(() => {
-            setLoading(false);
-            alert("Analysis feature coming soon!");
-        }, 2000);
+         const formData  = new FormData() ;
+         formData.append("resume", file) ;
+         formData.append("role", role) ;
+         formData.append("jobDescription", jobDescription) ;
+
+         try {
+            const response  = await axios.post("http://localhost:8000/api/match/analyze", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            });
+            console.log(response.data);
+         } catch (error) {
+            console.log(error); 
+            setLoading(false); 
+         }
     };
 
     return (
