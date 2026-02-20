@@ -2,30 +2,33 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { FaEnvelope, FaLock } from 'react-icons/fa'
-import { CgSpinner } from 'react-icons/cg' 
+import { CgSpinner } from 'react-icons/cg'
 
-const Signin = ()=>{ 
+const Signin = () => {
+    const navigate = useNavigate(); 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
-    const [email ,setEmail ] = useState("") ; 
-    const [password ,setPassword ] = useState("") ;
-    const [loading , setLoading ] = useState(false) ;
-    const [error , setError ] = useState("") ; 
-
- const handleSignin = async (e) =>{
-        e.preventDefault() ; 
-        setError(""); 
-        setLoading(true);  
+    const handleSignin = async (e) => {
+        e.preventDefault();
+        setError("");
+        setLoading(true);
         try {
             const response = await axios.post("http://localhost:8000/api/user/signin", {
                 email,
                 password
-            }) ; 
-            console.log(response.data) ; 
+            });
+            if (response.data.token) {
+                localStorage.setItem("token", response.data.token);
+                navigate("/dashboard");
+            }
         } catch (error) {
-            console.error(error) ; 
-            setError("Login failed. Please try again.") ; 
+            console.error(error);
+            setError(error.response?.data?.message || "Login failed. Please try again.");
         } finally {
-            setLoading(false) ; 
+            setLoading(false);
         }
     }
     return (
@@ -36,7 +39,7 @@ const Signin = ()=>{
 
                 {error && (
                     <div className='bg-red-500/20 border border-red-500/50 text-red-100 p-3 rounded-lg mb-6 text-sm text-center'>
-                        {error} 
+                        {error}
                     </div>
                 )}
 
@@ -79,7 +82,7 @@ const Signin = ()=>{
                 </form>
             </div>
         </div>
-    ) 
+    )
 }
 
-export default Signin ;  
+export default Signin;  

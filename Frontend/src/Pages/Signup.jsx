@@ -29,7 +29,7 @@ const Signup = () => {
         password: password
       })
       console.log(response.data)
-      // navigate('/login') // Uncomment when login route is ready
+      navigate('/signin')
     } catch (err) {
       console.error(err)
       setError(err.response?.data?.message || "Signup failed. Please try again.")
@@ -46,7 +46,7 @@ const Signup = () => {
 
         {error && (
           <div className='bg-red-500/20 border border-red-500/50 text-red-100 p-3 rounded-lg mb-6 text-sm text-center'>
-            {error} 
+            {error}
           </div>
         )}
 

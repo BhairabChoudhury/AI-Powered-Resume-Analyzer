@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import { FaCloudUploadAlt, FaBriefcase, FaFileAlt, FaMagic, FaCheckCircle, FaSpinner } from 'react-icons/fa'
 import ResultSection from '../Components/ResultSection'
+import axios from 'axios'
 const Dashboard = () => {
+    const navigate = useNavigate();
     const [isDragging, setIsDragging] = useState(false);
     const [file, setFile] = useState(null);
     const [role, setRole] = useState('');
     const [jobDescription, setJobDescription] = useState('');
     const [loading, setLoading] = useState(false);
-     const [data , setdata] = useState() ; 
+    const [data, setdata] = useState();
     const handleDragOver = (e) => {
         e.preventDefault();
         setIsDragging(true);
@@ -35,33 +38,37 @@ const Dashboard = () => {
         }
     };
 
-    const handleSubmit =  async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!file || !jobDescription) return;
 
         setLoading(true);
-         const formData  = new FormData() ;
-         formData.append("resume", file) ;
-         formData.append("role", role) ;
-         formData.append("jobDescription", jobDescription) ;
+        const formData = new FormData();
+        formData.append("resume", file);
+        formData.append("role", role);
+        formData.append("jobDescription", jobDescription);
 
-         try {
-            const response  = await axios.post("http://localhost:8000/api/match/analyze", formData, {
+        try {
+            const response = await axios.post("http://localhost:8000/api/match/analyze", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             });
-                  
-            setdata(response)
-             setLoading(false) ; 
-            console.log(response.data);
-         } catch (error) {
-            console.log(error); 
-            setLoading(false); 
-         }
 
-        
+            setdata(response.data)
+            setLoading(false);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+            if (error.response && error.response.status === 401) {
+                localStorage.removeItem("token");
+                navigate("/signin");
+            }
+        }
+
+
     };
 
     return (
@@ -179,7 +186,7 @@ const Dashboard = () => {
                                             value={role}
                                             onChange={(e) => setRole(e.target.value)}
                                             className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                                        > 
+                                        >
                                             <option value={""}>Select a role</option>
                                             <option value="frontend">Frontend Developer</option>
                                             <option value="backend">Backend Developer</option>
@@ -236,10 +243,10 @@ const Dashboard = () => {
                 </div>
             </main>
             <div>
-               <ResultSection data={data}/>  
+                <ResultSection data={data} />
             </div>
-         
-        </div> 
+
+        </div>
     )
 }
 
