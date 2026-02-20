@@ -15,11 +15,14 @@ const ResultSection = ({data}) => {
                        <p>Overall ATS score </p>
                    </div>
                    <div className='w-[50% ]'>
-                     <p>{data. } </p>
+                    <h2> Score Breakdown</h2>
+                     <p>{data.skills_match } </p>
+                      <p>{data. experience_match } </p>
+                      <p>{data.education_match } </p>
                    </div>
                  </div>
                  <div>
-
+                    <ScoreChart/> 
                  </div>
             </div>
 
