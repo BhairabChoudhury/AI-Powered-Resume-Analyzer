@@ -10,7 +10,7 @@ const Signup = () => {
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleSignup = async (e) => {
     e.preventDefault()
@@ -34,7 +34,10 @@ const Signup = () => {
       console.error(err)
       setError(err.response?.data?.message || "Signup failed. Please try again.")
     } finally {
-      setLoading(false)
+      setLoading(false) 
+      setName("")
+      setEmail("")
+      setPassword("") 
     }
   }
 
@@ -46,7 +49,7 @@ const Signup = () => {
 
         {error && (
           <div className='bg-red-500/20 border border-red-500/50 text-red-100 p-3 rounded-lg mb-6 text-sm text-center'>
-            {error}
+            {error}      
           </div>
         )}
 

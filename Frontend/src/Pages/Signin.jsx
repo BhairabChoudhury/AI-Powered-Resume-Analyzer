@@ -29,6 +29,8 @@ const Signin = () => {
             setError(error.response?.data?.message || "Login failed. Please try again.");
         } finally {
             setLoading(false);
+            setEmail("");
+            setPassword("");
         }
     }
     return (
