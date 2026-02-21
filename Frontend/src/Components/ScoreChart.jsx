@@ -10,8 +10,8 @@
   } from "recharts"
 const ScoreChart = ({data}) =>{
      return (
-         <>
-         <div className=" bg-white rounded-2xl shadow-lg p-6 ">
+         <> 
+         <div className=" bg-white rounded-2xl shadow-md p-2 w-[500px] ">
             <h2 className=" text-lg font-bold text-gray-800 mb-4 "> Score Breakdown </h2>
             <ResponsiveContainer width="100%" height={300}>
                <BarChart data={data}> 
@@ -25,7 +25,7 @@ const ScoreChart = ({data}) =>{
             </ResponsiveContainer>
          </div>
         </>
-     )
+     ) 
 }
 
-export default ScoreChart  
+export default ScoreChart 
