@@ -1,10 +1,10 @@
-const User = require("../Models/userModel") ;
-const bcrypt = require("bcryptjs") ;
-const jwt = require("jsonwebtoken") ;
+const User = require("../Models/userModel");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
-  console.log("register hit") ; 
-  try { 
+  console.log("register hit");
+  try {
     const { name, email, password } = req.body;
 
     const existing = await User.findOne({ email });
@@ -27,7 +27,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  console.log("login hit") ;  
+  console.log("login hit");
   try {
     const { email, password } = req.body;
 
@@ -53,4 +53,4 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = {register, login} ;
+module.exports = { register, login };

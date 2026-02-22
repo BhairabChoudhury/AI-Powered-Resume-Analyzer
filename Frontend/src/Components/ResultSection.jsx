@@ -1,11 +1,14 @@
-import React from 'react';
 import ScoreChart from './ScoreChart';
-import { FaCheckCircle, FaExclamationTriangle, FaLightbulb } from 'react-icons/fa';
+import { FaCheckCircle, FaExclamationTriangle, FaLightbulb, FaDownload } from 'react-icons/fa';
+import axios from 'axios';
+import { useState } from 'react';
 
 const ResultSection = ({ data }) => {
     if (!data) {
         return null;
     }
+
+    const [isDownloading, setIsDownloading] = useState(false);
 
     const {
         role,
@@ -32,6 +35,38 @@ const ResultSection = ({ data }) => {
         { name: 'Overall', score: atsScore },
     ];
 
+    const downloadPDF = async () => {
+        try {
+            setIsDownloading(true);
+            const token = localStorage.getItem('token');
+            const response = await axios.post(
+                'http://localhost:8000/api/match/export',
+                data,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    responseType: 'blob'
+                }
+            );
+
+            // Create a link to download the PDF
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `Resume_Analysis_${Date.now()}.pdf`);
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        } catch (error) {
+            console.error('Error downloading PDF:', error);
+            alert('Failed to download PDF. Please try again.');
+        } finally {
+            setIsDownloading(false);
+        }
+    };
+
     return (
         <div className="w-full max-w-6xl mx-auto p-4 space-y-6 animate-fadeIn">
             {/* Header Card */}
@@ -41,6 +76,14 @@ const ResultSection = ({ data }) => {
                     <p className="text-gray-500 mt-1">
                         Target Role: <span className="font-semibold text-blue-600">{role || 'Not specified'}</span>
                     </p>
+                    <button
+                        onClick={downloadPDF}
+                        disabled={isDownloading}
+                        className={`mt-4 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-md active:scale-95 ${isDownloading ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                    >
+                        <FaDownload className={isDownloading ? 'animate-bounce' : ''} />
+                        {isDownloading ? 'Generating PDF...' : 'Download Report'}
+                    </button>
                 </div>
                 <div className="mt-4 md:mt-0 flex items-center gap-4">
                     <div className="text-right">

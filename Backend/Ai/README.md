@@ -25,7 +25,7 @@ This is the Python-based AI service for analyzing resumes against job descriptio
     or 
     source venv/Scripts/activate && python app.py
 
-The API will be running at `http://127.0.0.1:8001`.
+The API will be running at `http://127.0.0.1:8001`.   
 
 ## API Endpoints
     run test_backend.py to test the API 

@@ -1,0 +1,4 @@
+[2026-02-21T06:30:08.333Z] Analysis request started
+[2026-02-21T06:30:08.337Z] User ID: 6988cdf888c8402a03f4dcb3, Role: datascience, JD Length: 816
+[2026-02-21T06:30:08.338Z] Extracting text from PDF...
+[2026-02-21T06:30:08.339Z] PDF parsing failed: pdfParse is not a function
