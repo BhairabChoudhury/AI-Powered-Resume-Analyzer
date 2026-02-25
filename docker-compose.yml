@@ -1,0 +1,35 @@
+services:
+  frontend:
+    build: ./Frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend-node
+    networks:
+      - app-network
+
+  backend-node:
+    build: ./Backend/node
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHON_AI_URL=http://backend-ai:8001
+    env_file:
+      - ./Backend/node/.env
+    depends_on:
+      - backend-ai
+    networks:
+      - app-network
+
+  backend-ai:
+    build: ./Backend/Ai
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./Backend/Ai/.env
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

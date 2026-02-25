@@ -26,3 +26,63 @@ Simulate how real Applicant Tracking Systems (ATS) scan, filter, and score your 
 
 
 ![alt text](Screenshot%202026-02-25%20223014.png)
+
+## 🛠️ Getting Started
+
+Follow these instructions to get the project up and running on your local machine.
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v20+)
+- [Python](https://www.python.org/) (v3.10+)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Optional, for Docker setup)
+
+---
+
+### 🚀 Docker Setup (Recommended)
+The easiest way to run the entire stack is using Docker Compose.
+
+1. **Start Docker Desktop**.
+2. Run the following command in the root directory:
+   ```bash
+   docker-compose up --build
+   ```
+3. Access the app:
+   - **Frontend**: `http://localhost:3000`
+   - **Node Backend**: `http://localhost:8000`
+   - **AI Backend**: `http://localhost:8001`
+
+---
+
+### 💻 Local Setup (Development)
+
+#### 1. AI Backend (Python)
+```bash
+cd Backend/Ai
+python -m venv venv
+source venv/Scripts/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+
+#### 2. Node Backend (Express)
+Create a `.env` file in `Backend/node/` with `PORT`, `MONGO_URL`, and `JWT_SECRET`.
+```bash
+cd Backend/node
+npm install
+npm start
+```
+
+#### 3. Frontend (React + Vite)
+```bash
+cd Frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🛠️ Technologies Used
+- **Frontend**: React, Vite, Tailwind CSS, Recharts, Lucide React
+- **Backend**: Node.js, Express, MongoDB (Atlas)
+- **AI Engine**: Python, FastAPI, Google Gemini API, sentence-transformers , NLP 
+- **DevOps**: Docker, Docker Compose
