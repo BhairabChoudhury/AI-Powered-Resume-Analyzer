@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
 
                     {/* Brand Section */}
-                    <div className='space-y-4'>
+                    <div className='space-y-4 mr-20'>
                         <h2 className='text-3xl font-bold text-white tracking-tight flex items-center gap-2'>
                             <span className='w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-lg'>RT</span>
                             Resume Teacher
