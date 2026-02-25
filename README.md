@@ -23,3 +23,6 @@ Simulate how real Applicant Tracking Systems (ATS) scan, filter, and score your 
 
 
 ![alt text](Screenshot%202026-02-25%20234214.png)
+
+
+![alt text](Screenshot%202026-02-25%20223014.png)
