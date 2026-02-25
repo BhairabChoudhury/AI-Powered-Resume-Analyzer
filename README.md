@@ -1,4 +1,4 @@
-HireLens: AI Resume Analyzer
+AI Resume Analyzer
 
 AI-powered ATS Resume Analyzer
 
@@ -17,5 +17,9 @@ Simulate how real Applicant Tracking Systems (ATS) scan, filter, and score your 
     - Modern UI: Built with React, Tailwind CSS, and Recharts for a clean, interactive experience.
 
 
+📸 Screenshots
 
 ![alt text](Screenshot%202026-02-25%20222405.png)  
+
+
+![alt text](Screenshot%202026-02-25%20234214.png)
