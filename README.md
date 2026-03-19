@@ -1,7 +1,5 @@
 AI Resume Analyzer
 
-AI-powered ATS Resume Analyzer
-
 Simulate how real Applicant Tracking Systems (ATS) scan, filter, and score your resume. Get actionable feedback, keyword gaps, and role-based insights to improve your chances before you apply. 
 ---
 🚀 Features
