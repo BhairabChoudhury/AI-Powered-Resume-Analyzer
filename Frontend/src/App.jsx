@@ -5,7 +5,7 @@ import Signin from './Pages/Signin'
 import Navbar from './Components/Navbar'
 import Dashboard from './Pages/Dashboard'
 
-import Home from './Pages/home'
+import Home from './Pages/Home'
 
 function App() {
   return (
