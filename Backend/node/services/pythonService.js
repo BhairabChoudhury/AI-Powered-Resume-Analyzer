@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const callPythonAI = async (resumeText, jdText, role) => {
     try {
-        const pythonAiUrl = process.env.PYTHON_AI_URL || "http://127.0.0.1:8001";
+        const pythonAiUrl = process.env.PYTHON_AI_URL || "https://ai-backend-6qwk.onrender.com";
         const response = await axios.post(`${pythonAiUrl}/analyze`, {
             resume_text: resumeText,
             jd_text: jdText,
