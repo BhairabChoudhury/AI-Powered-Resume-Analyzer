@@ -23,7 +23,7 @@ const Signup = () => {
 
     setLoading(true)
     try {
-      const response = await axios.post("http://localhost:8000/api/user/signup", {
+      const response = await axios.post("https://ai-node-g548.onrender.com/api/user/signup", {
         name: name,
         email: email,
         password: password
@@ -97,7 +97,7 @@ const Signup = () => {
             ) : (
               "Sign Up"
             )}
-          </button>
+          </button>  
 
           <div className='flex items-center justify-between mt-4 text-sm text-white/80'>
             <span>Already have an account?</span>

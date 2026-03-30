@@ -49,7 +49,7 @@ const Dashboard = () => {
         formData.append("jobDescription", jobDescription);
 
         try {
-            const response = await axios.post("http://localhost:8000/api/match/analyze", formData, {
+            const response = await axios.post("https://ai-node-g548.onrender.com/api/match/analyze", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

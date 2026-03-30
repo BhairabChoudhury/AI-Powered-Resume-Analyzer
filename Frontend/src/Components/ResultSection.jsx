@@ -40,7 +40,7 @@ const ResultSection = ({ data }) => {
             setIsDownloading(true);
             const token = localStorage.getItem('token');
             const response = await axios.post(
-                'http://localhost:8000/api/match/export',
+                'https://ai-node-g548.onrender.com/api/match/export',
                 data,
                 {
                     headers: {

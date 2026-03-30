@@ -16,7 +16,7 @@ const Signin = () => {
         setError("");
         setLoading(true);
         try {
-            const response = await axios.post("http://localhost:8000/api/user/signin", {
+            const response = await axios.post("https://ai-node-g548.onrender.com/api/user/signin", {
                 email,
                 password
             });
