@@ -31,13 +31,13 @@ def analyze_resume(resume_text: str, jd_text: str, selected_role: str | None = N
     resume_skills = extract_skills(resume_text)
     jd_skills = extract_skills(jd_text) if jd_text else list(role_skills)
 
-    matched_skills = list(set(resume_skills) & set(jd_skills))
-    missing_skills = list(set(jd_skills) - set(resume_skills))
+    matched_skills = list(set(resume_skills) & set(jd_skills)) # & intersection  operator  common skill 
+    missing_skills = list(set(jd_skills) - set(resume_skills)) # - difference operator  missing skill  
 
     matched_role_skills = list(set(resume_skills) & role_skills)
     techstack_coverage = (
-        round((len(matched_role_skills) / len(role_skills)) * 100, 2)
-        if role_skills else 0.0
+        round((len(matched_role_skills) / len(role_skills)) * 100, 2) # if  match 90% then 90%   
+        if role_skills else 0.0 # else zero 
     )
 
     # ---- Section Detection ----
